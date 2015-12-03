@@ -1,4 +1,4 @@
 class Team < ActiveRecord::Base
   belongs_to :match
-  belongs_to :tournament
+  has_many :tournaments, :through => :participants
 end
