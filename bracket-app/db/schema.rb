@@ -11,30 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203145903) do
+ActiveRecord::Schema.define(version: 20151211164552) do
 
   create_table "matches", force: :cascade do |t|
     t.string   "Name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "participants", force: :cascade do |t|
-    t.string   "Name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "round_id"
   end
 
   create_table "rounds", force: :cascade do |t|
     t.string   "Name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "tournament_id"
   end
 
   create_table "teams", force: :cascade do |t|
     t.string   "Name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "tournament_id"
+    t.integer  "match_id"
   end
 
   create_table "tournaments", force: :cascade do |t|

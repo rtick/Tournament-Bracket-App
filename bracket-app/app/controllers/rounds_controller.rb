@@ -69,6 +69,6 @@ class RoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def round_params
-      params.require(:round).permit(:Name)
+      params.require(:round).permit(:Name, :match_id)
     end
 end
