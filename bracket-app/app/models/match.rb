@@ -3,5 +3,5 @@ class Match < ActiveRecord::Base
   has_one :home_team, :class_name => "Team"
   has_one :away_team, :class_name => "Team"
   has_one :winner, :class_name => "Team"
-  validates :Name, presence: true
+  validates :Name, presence: true, uniqueness: true
 end
