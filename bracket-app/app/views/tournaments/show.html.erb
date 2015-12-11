@@ -18,11 +18,21 @@
 			
 			<% i = 0 %>
 			<% while i < 16 do %>
-
-				<li class="game game-top winner"><%= teamArray[i].Name %></li>
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-top winner"><%= teamArray[i] %></li>
+				
+				<% else %>
+					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+				<% end %>
 				<li class="game game-spacer">&nbsp;</li>
 				<% i = i+1 %>
-				<li class="game game-bottom "><%= teamArray[i].Name %> </li>
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+				<% else %>
+					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+				<% end %>
+				<li class="game game-bottom "><%= teamArray[i] %> </li>
 				<% i = i+1 %>
 
 				<li class="spacer">&nbsp;</li>
