@@ -5,5 +5,15 @@
   <%= @tournament.Name %>
 </p>
 
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+<p>
+	<strong>Teams:</strong>
+</p>
+
+<ul>
+	<% @tournament.teams.each do |team|%>
+	<li><%= team.Name%></li>
+	<%end%>
+</ul>
+
+<%= link_to 'Edit', edit_tournament_path(@tournament) %> 
 <%= link_to 'Back', tournaments_path %>
