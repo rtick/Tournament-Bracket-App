@@ -14,6 +14,7 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.Name %></td>
+		<td><%= team.tournament.Name if team.tournament%></td>
         <td><%= button_to 'Show', team %></td>
         <td><%= button_to 'Edit', edit_team_path(team) %></td>
         <td><%= button_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
