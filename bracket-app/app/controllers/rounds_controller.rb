@@ -28,25 +28,27 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.save
-        match_num = 1
-        temp = nil
-        @round.tournament.teams.each_with_index do |team, index|
+        match_num = 0
+        #temp = nil
+        while(true)
           puts match_num.to_s
+          team = @round.tournament.teams[match_num]
+          next_team = @round.tournament.teams[match_num + 1]
+          
           if(team.nil?)
             break
-          end
-          
-          next_team = @round.tournament.teams[index + 1]
-          
-          if((next_team == temp) && (next_team != nil))
-            next
           elsif(next_team.nil?)
+            puts team.Name
             match = Match.create(:Name => match_num.to_s, :round_id => @round.id, :home_team => team, :winner => team)
+            team[:match_id] = match.id
           else
+            puts team.Name
+            puts next_team.Name
             match = Match.create(:Name => match_num.to_s, :round_id => @round.id, :home_team => team, :away_team => next_team)
-            temp = next_team
-            match_num += 1
+            team[:match_id] = match.id
+            next_team[:match_id] = match.id
           end
+          match_num += 2
         end
         
         format.html { redirect_to @round, notice: 'Round was successfully created.' }
