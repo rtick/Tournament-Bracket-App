@@ -10,15 +10,5 @@
   <%= @match.home_team.Name %>
 </p>
 
-<p>
-  <strong>Away Team:</strong>
-  <%= @match.away_team.Name %>
-</p>
-
-<p>
-  <strong>Winner:</strong>
-  <%= @match.winner.Name %>
-</p>
-
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

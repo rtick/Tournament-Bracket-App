@@ -40,14 +40,16 @@ class RoundsController < ApplicationController
             break
           elsif(next_team.nil?)
             puts team.Name
-            match = Match.create(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :winner_id => team.id)
-            team[:match_id] = match.id
+            match = Match.new(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :winner_id => team.id)
+            match.save
+            team.update(:match_id => match.id)
           else
             puts team.Name
             puts next_team.Name
-            match = Match.create(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :away_team_id => next_team.id)
-            team[:match_id] = match.id
-            next_team[:match_id] = match.id
+            match = Match.new(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :away_team_id => next_team.id)
+            match.save
+            team.update(:match_id => match.id)
+            next_team.update(:match_id => match.id)
           end
           name += 1
           match_num += 2
