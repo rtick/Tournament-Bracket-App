@@ -108,7 +108,7 @@
 		<tbody>
 			<tr>
 	        	<td> <%= button_to 'Edit Tournament', edit_tournament_path(@tournament) %> </td>
-	        	<td> <%= button_to 'Back', tournaments_path %> </td>
+	        	<td> <%= button_to 'Back', tournaments_path, :class => "button", :method => :get %> </td>
 	        </tr>
 	    </tbody>
 	</table>

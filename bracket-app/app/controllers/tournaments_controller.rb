@@ -21,6 +21,7 @@ class TournamentsController < ApplicationController
   def edit
   end
 
+
   # POST /tournaments
   # POST /tournaments.json
   def create

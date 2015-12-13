@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   
   post "tournaments/:id" => "tournaments#show"
   post "tournaments/:id/edit" => "tournaments#edit"
-  
+
+
   post "rounds/:id" => "rounds#show"
   post "rounds/:id/edit" => "rounds#edit"
   
