@@ -32,6 +32,7 @@
 
 				<% if teamArray[i].blank? then %>
 					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-bottom"><%= teamArray[i] %></li>
 				<% else %>
 					<li class="game game-bottom"><%= teamArray[i].Name %></li>
 				<% end %>
