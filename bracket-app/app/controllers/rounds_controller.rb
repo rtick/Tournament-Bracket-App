@@ -1,5 +1,52 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: [:show, :edit, :update, :destroy]
+  
+  @round_num = 0
+  
+  def get_winners
+    round_done = true
+    winners = []
+    @round.matches.each do |match|
+      winners.push(match.winner_id)
+      if(match.winner.nil?)
+        round_done = false
+      end
+      if(round_done == true)
+        @round_num += 1
+        new_round = Round.new(:Name => (@round.Name + "_" + @round_num.to_s), :tournament_id => @round.tournament_id)
+        new_round.save
+        
+        match_num = 0
+        name = 1
+        match_name = new_round.Name + name.to_s
+        #temp = nil
+        while(true)
+          puts match_num.to_s
+          team = winners[match_num]
+          next_team = winners[match_num + 1]
+          
+          if(team.nil?)
+            break
+          elsif(next_team.nil?)
+            puts team.Name
+            match = Match.new(:Name => match_name, :round_id => new_round.id, :home_team_id => team.id, :winner_id => team.id)
+            match.save
+            team.update(:match_id => match.id)
+          else
+            puts team.Name
+            puts next_team.Name
+            match = Match.new(:Name => match_name, :round_id => new_round.id, :home_team_id => team.id, :away_team_id => next_team.id)
+            match.save
+            team.update(:match_id => match.id)
+            next_team.update(:match_id => match.id)
+          end
+          name += 1
+          match_name = new_round.Name + name.to_s
+          match_num += 2
+        end
+      end
+    end
+  end
 
   # GET /rounds
   # GET /rounds.json
@@ -30,6 +77,7 @@ class RoundsController < ApplicationController
       if @round.save
         match_num = 0
         name = 1
+        match_name = @round.Name + name.to_s
         #temp = nil
         while(true)
           puts match_num.to_s
@@ -40,18 +88,19 @@ class RoundsController < ApplicationController
             break
           elsif(next_team.nil?)
             puts team.Name
-            match = Match.new(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :winner_id => team.id)
+            match = Match.new(:Name => match_name, :round_id => @round.id, :home_team_id => team.id, :winner_id => team.id)
             match.save
             team.update(:match_id => match.id)
           else
             puts team.Name
             puts next_team.Name
-            match = Match.new(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :away_team_id => next_team.id)
+            match = Match.new(:Name => match_name, :round_id => @round.id, :home_team_id => team.id, :away_team_id => next_team.id)
             match.save
             team.update(:match_id => match.id)
             next_team.update(:match_id => match.id)
           end
           name += 1
+          match_name = @round.Name + name.to_s
           match_num += 2
         end
         
