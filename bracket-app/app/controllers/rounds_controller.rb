@@ -29,6 +29,7 @@ class RoundsController < ApplicationController
     respond_to do |format|
       if @round.save
         match_num = 0
+        name = 1
         #temp = nil
         while(true)
           puts match_num.to_s
@@ -39,15 +40,16 @@ class RoundsController < ApplicationController
             break
           elsif(next_team.nil?)
             puts team.Name
-            match = Match.create(:Name => match_num.to_s, :round_id => @round.id, :home_team => team, :winner => team)
+            match = Match.create(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :winner_id => team.id)
             team[:match_id] = match.id
           else
             puts team.Name
             puts next_team.Name
-            match = Match.create(:Name => match_num.to_s, :round_id => @round.id, :home_team => team, :away_team => next_team)
+            match = Match.create(:Name => name.to_s, :round_id => @round.id, :home_team_id => team.id, :away_team_id => next_team.id)
             team[:match_id] = match.id
             next_team[:match_id] = match.id
           end
+          name += 1
           match_num += 2
         end
         
