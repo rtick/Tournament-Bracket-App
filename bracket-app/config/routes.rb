@@ -5,6 +5,16 @@ Rails.application.routes.draw do
   resources :tournaments
   
   post "tournaments/:id" => "tournaments#show"
+  post "tournaments/:id/edit" => "tournaments#edit"
+  
+  post "rounds/:id" => "rounds#show"
+  post "rounds/:id/edit" => "rounds#edit"
+  
+  post "matches/:id" => "matches#show"
+  post "matches/:id/edit" => "matches#edit"
+  
+  post "teams/:id" => "teams#show"
+  post "teams/:id/edit" => "teams#edit"
   
   root 'tournaments#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -28,6 +28,27 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.save
+        match_num = 1
+        temp = nil
+        @round.tournament.teams.each_with_index do |team, index|
+          puts match_num.to_s
+          if(team.nil?)
+            break
+          end
+          
+          next_team = @round.tournament.teams[index + 1]
+          
+          if((next_team == temp) && (next_team != nil))
+            next
+          elsif(next_team.nil?)
+            match = Match.create(:Name => match_num.to_s, :round_id => @round.id, :home_team => team, :winner => team)
+          else
+            match = Match.create(:Name => match_num.to_s, :round_id => @round.id, :home_team => team, :away_team => next_team)
+            temp = next_team
+            match_num += 1
+          end
+        end
+        
         format.html { redirect_to @round, notice: 'Round was successfully created.' }
         format.json { render :show, status: :created, location: @round }
       else
@@ -69,6 +90,6 @@ class RoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def round_params
-      params.require(:round).permit(:Name, :match_id)
+      params.require(:round).permit(:Name, :tournament_id)
     end
 end

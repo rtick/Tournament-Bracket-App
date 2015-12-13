@@ -3,4 +3,5 @@ class Tournament < ActiveRecord::Base
   has_one :winner, :class_name => "Team"
   has_many :teams
   validates :Name, presence: true, uniqueness: true
+  
 end
