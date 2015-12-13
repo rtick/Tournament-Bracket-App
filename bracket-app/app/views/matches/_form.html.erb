@@ -15,6 +15,14 @@
     <%= f.label :Name %><br>
     <%= f.text_field :Name %>
   </div>
+  <div class="field">
+    <%= f.label :home_team_id %><br>
+    <%= f.collection_select :home_team_id, Team.all, :id, :Name, prompt: 'Please select a home team' %>
+  </div>
+  <div class="field">
+    <%= f.label :away_team_id %><br>
+    <%= f.collection_select :away_team_id, Team.all, :id, :Name, prompt: 'Please select an away team' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
