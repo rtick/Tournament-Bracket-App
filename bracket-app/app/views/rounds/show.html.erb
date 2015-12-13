@@ -5,5 +5,12 @@
   <%= @round.Name %>
 </p>
 
+<p>Matches:</p>
+<ul>
+<% @round.matches.each do |match| %>
+	<li><%= match.Name %></li>
+<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_round_path(@round) %> |
 <%= link_to 'Back', rounds_path %>
