@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(version: 20151211164552) do
     t.integer  "round_id"
   end
 
-  create_table "participants", force: :cascade do |t|
-    t.string   "Name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "rounds", force: :cascade do |t|
     t.string   "Name"
     t.datetime "created_at",    null: false

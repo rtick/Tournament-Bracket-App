@@ -32,10 +32,11 @@
 
 				<% if teamArray[i].blank? then %>
 					<% teamArray[i] = "Bi Week" %>
-					<li class="game game-bottom"><%= teamArray[i] %></li>
+					<li class="game game-bottom "><%= teamArray[i] %> </li>
 				<% else %>
 					<li class="game game-bottom"><%= teamArray[i].Name %></li>
 				<% end %>
+
 
 				<% i = i+1 %>
 
@@ -103,11 +104,19 @@
 			<li class="game game-top winner">Lousville</li>
 		</ul>		
 	</main>
-
-	<%= link_to 'Edit', edit_tournament_path(@tournament) %> 
-	<%= link_to 'Back', tournaments_path %>
+	<table>
+		<tbody>
+			<tr>
+	        	<td> <%= button_to 'Edit Tournament', edit_tournament_path(@tournament) %> </td>
+	        	<td> <%= button_to 'Back', tournaments_path %> </td>
+	        </tr>
+	    </tbody>
+	</table>
 
 	<footer>
-			This HTML Layout was taken and altered from: <a href="http://codepen.io/anon/pen/pgJVRg">http://codepen.io/anon/pen/pgJVRg</a>
+		<br> 
+		<i>
+			This HTML Layout was taken and altered from: <a href="http://codepen.io/anon/pen/pgJVRg"> http://codepen.io/anon/pen/pgJVRg</a>
+		</i>
 	</footer>
 </html>
