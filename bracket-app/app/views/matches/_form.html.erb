@@ -14,24 +14,24 @@
   <div class="field">
     <%= f.label :Name %><br>
     <%= f.text_field :Name %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :round_id %><br>
     <%= f.collection_select :round_id, Round.all, :id, :Name, prompt: 'Please select an away team' %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :home_team_id %><br>
     <%= f.collection_select :home_team_id, Team.all, :id, :Name, prompt: 'Please select a home team' %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :away_team_id %><br>
     <%= f.collection_select :away_team_id, Team.all, :id, :Name, prompt: 'Please select an away team' %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :winner_id %><br>
     <%= f.collection_select :winner_id, Team.all, :id, :Name, prompt: 'Please select the winning team' %>
-  </div>
+  </div><br>
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div><br>
 <% end %>
