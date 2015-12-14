@@ -109,7 +109,7 @@ class RoundsController < ApplicationController
           match_num += 2
         end
         
-        format.html { redirect_to @round, notice: 'Round was successfully created.' }
+        format.html { redirect_to Match.new, notice: 'Round was successfully created.' }
         format.json { render :show, status: :created, location: @round }
       else
         format.html { render :new }
