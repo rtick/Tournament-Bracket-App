@@ -40,6 +40,7 @@
 				<li class="game game-top">Bye</li>
 				<li class="game game-spacer">&nbsp;</li>
 				<li class="game game-bottom">Bye</li>
+				<% totalMatches = totalMatches + 1 %>
 			<% end %>
 
 		<% else %>
@@ -83,6 +84,7 @@
 				<li class="game game-top">Bye</li>
 				<li class="game game-spacer">&nbsp;</li>
 				<li class="game game-bottom">Bye</li>
+				<% totalMatches = totalMatches + 1 %>
 			<% end %>
 
 		<% else %>
@@ -126,6 +128,7 @@
 				<li class="game game-top">Bye</li>
 				<li class="game game-spacer">&nbsp;</li>
 				<li class="game game-bottom">Bye</li>
+				<% totalMatches = totalMatches + 1 %>
 			<% end %>
 
 		<% else %>
@@ -164,11 +167,12 @@
 
 			<% end %>
 
-			<% while totalMatches < 8 do %>
+			<% while totalMatches < 1 do %>
 				<li class="spacer">&nbsp;</li>
 				<li class="game game-top">Bye</li>
 				<li class="game game-spacer">&nbsp;</li>
 				<li class="game game-bottom">Bye</li>
+				<% totalMatches = totalMatches + 1 %>
 			<% end %>
 
 		<% else %>
