@@ -19,6 +19,8 @@
 
 				<% if match.home_team == nil then %>
 					<li class="game game-top">Bye</li>
+				<% elsif match.home_team == match.winner %>
+					<li class="game game-top winner"><%= match.home_team.Name %></li>
 				<% else %>
 					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
@@ -27,6 +29,8 @@
 
 				<% if match.away_team == nil then %>
 					<li class="game game-bottom">Bye</li>
+				<% elsif match.away_team == match.winner %>
+					<li class="game game-bottom winner"><%= match.away_team.Name %></li>
 				<% else %>
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
@@ -63,6 +67,8 @@
 
 				<% if match.home_team == nil then %>
 					<li class="game game-top">Bye</li>
+				<% elsif match.home_team == match.winner %>
+					<li class="game game-top winner"><%= match.home_team.Name %></li>
 				<% else %>
 					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
@@ -71,6 +77,8 @@
 
 				<% if match.away_team == nil then %>
 					<li class="game game-bottom">Bye</li>
+				<% elsif match.away_team == match.winner %>
+					<li class="game game-bottom winner"><%= match.away_team.Name %></li>
 				<% else %>
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
@@ -107,6 +115,8 @@
 
 				<% if match.home_team == nil then %>
 					<li class="game game-top">Bye</li>
+				<% elsif match.home_team == match.winner %>
+					<li class="game game-top winner"><%= match.home_team.Name %></li>
 				<% else %>
 					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
@@ -115,6 +125,8 @@
 
 				<% if match.away_team == nil then %>
 					<li class="game game-bottom">Bye</li>
+				<% elsif match.away_team == match.winner %>
+					<li class="game game-bottom winner"><%= match.away_team.Name %></li>
 				<% else %>
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
@@ -151,6 +163,8 @@
 
 				<% if match.home_team == nil then %>
 					<li class="game game-top">Bye</li>
+				<% elsif match.home_team == match.winner %>
+					<li class="game game-top winner"><%= match.home_team.Name %></li>
 				<% else %>
 					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
@@ -159,6 +173,8 @@
 
 				<% if match.away_team == nil then %>
 					<li class="game game-bottom">Bye</li>
+				<% elsif match.away_team == match.winner %>
+					<li class="game game-bottom winner"><%= match.away_team.Name %></li>
 				<% else %>
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
