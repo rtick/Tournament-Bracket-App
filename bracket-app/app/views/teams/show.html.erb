@@ -4,16 +4,11 @@
   <strong>Name:</strong>
   <%= @team.Name %>
 </p>
+
 <p>
   <strong>Tournament:</strong>
   <%= @team.tournament.Name if @team.tournament.Name %>
 </p>
-<% if @team.match %>
-	<p>
-	  <strong>Match:</strong>
-	  <%= @team.match.Name%>
-	</p>
-<% end %>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
