@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="bracket_css.css">
+		<%=stylesheet_link_tag "bracket_css"%>
 	</head>
 
 	<h1><%= @tournament.Name %></h1>
@@ -149,14 +150,8 @@
 	    </tbody>
 	</table>
 
-	<%= link_to 'Edit Your Teams', teams_path %> <br>
-	<%= link_to 'Edit Your Matches', matches_path %> <br>
-	<%= link_to 'Edit Your Round', rounds_path %> <br>
-
-	<footer>
 		<br> 
 		<i>
-			This HTML Layout was taken and altered from: <a href="http://codepen.io/anon/pen/pgJVRg"> http://codepen.io/anon/pen/pgJVRg</a>
+			This HTML Layout was borrowed and altered from: <a href="http://codepen.io/anon/pen/pgJVRg"> http://codepen.io/anon/pen/pgJVRg</a>
 		</i>
-	</footer>
 </html>

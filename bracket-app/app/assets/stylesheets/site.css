@@ -1,0 +1,11 @@
+header { background-color: #002B5C; color:#fff; padding:10px }
+main {width: 100%; float: left}
+div#primary {width: 70%; float:left}
+div#sidebar {background-color: #f6e7a1; width: 25%; float:right; margin-top: 50px; padding:6px}
+div#sidebar li { list-style: none; font-size: 1.3em; margin-bottom: 10px}
+footer {float: left; width: 100%; text-align: center; border-top: thin solid #000; margin-top: 10px}
+
+div#primary table{border:thin solid #ececec; width:95%; border-spacing:0px}
+div#primary table th{background-color:#5aabbc; color:#fff; text-align:left}
+div#primary table th, div#body table td{padding:4px}
+div#primary table tr:nth-child(even) {background: #ececec}

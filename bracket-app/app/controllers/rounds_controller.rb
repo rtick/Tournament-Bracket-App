@@ -20,7 +20,7 @@ class RoundsController < ApplicationController
         flash[:message] = "Tournament has a Winner!"
       else
         new_round = Round.new(:Name => (round.Name + "."), :tournament_id => round.tournament_id)
-        new_round.save!
+        new_round.save
         match_num = 0
         name = 1
         match_name = new_round.Name + "_" + name.to_s
@@ -105,7 +105,7 @@ class RoundsController < ApplicationController
             next_team.update(:match_id => match.id)
           end
           name += 1
-          match_name = @round.tournament.Name + "_" + @round.Name + name.to_s
+          match_name = @round.tournament.Name + "_" + @round.Name + "_" + name.to_s
           match_num += 2
         end
         

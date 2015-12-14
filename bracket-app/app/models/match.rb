@@ -2,6 +2,8 @@ class TeamValidator < ActiveModel::Validator
   def validate(record)
     if record.home_team_id == record.away_team_id
       record.errors[:base] << "Teams cannot play themselves"
+    elsif (record.winner_id != record.home_team_id) || ((record.away_team_id != nil) && (record.winner_id != record.away_team_id))
+      record.errors[:base] << "You must choose between the 2 teams in this match"
     end
   end
 end
