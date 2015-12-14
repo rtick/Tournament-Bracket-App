@@ -12,6 +12,7 @@
 
 	<ul class="round round-1">
 		<% if @tournament.rounds.all.length >= 1 then %>
+			<% totalMatches = 0 %>
 			<% @tournament.rounds.all[0].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
@@ -30,7 +31,17 @@
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+				<% totalMatches = totalMatches + 1 %>
+
 			<% end %>
+
+			<% while totalMatches < 8 do %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top">Bye</li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom">Bye</li>
+			<% end %>
+
 		<% else %>
 			<% for i in 0..7 %>
 				<li class="spacer">&nbsp;</li>
@@ -44,6 +55,7 @@
 
 	<ul class="round round-2">
 		<% if @tournament.rounds.all.length >= 2 then %>
+			<% totalMatches = 0 %>
 			<% @tournament.rounds.all[1].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
@@ -62,7 +74,17 @@
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+				<% totalMatches = totalMatches + 1 %>
+
 			<% end %>
+
+			<% while totalMatches < 4 do %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top">Bye</li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom">Bye</li>
+			<% end %>
+
 		<% else %>
 			<% for i in 0..3 %>
 				<li class="spacer">&nbsp;</li>
@@ -76,6 +98,7 @@
 
 	<ul class="round round-3">
 		<% if @tournament.rounds.all.length >= 3 then %>
+			<% totalMatches = 0 %>
 			<% @tournament.rounds.all[2].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
@@ -94,7 +117,17 @@
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+				<% totalMatches = totalMatches + 1 %>
+
 			<% end %>
+
+			<% while totalMatches < 2 do %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top">Bye</li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom">Bye</li>
+			<% end %>
+
 		<% else %>
 			<% for i in 0..1 %>
 				<li class="spacer">&nbsp;</li>
@@ -108,6 +141,7 @@
 
 	<ul class="round round-4">
 		<% if @tournament.rounds.all.length >= 4 then %>
+			<% totalMatches = 0 %>
 			<% @tournament.rounds.all[3].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
@@ -126,7 +160,17 @@
 					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+				<% totalMatches = totalMatches + 1 %>
+
 			<% end %>
+
+			<% while totalMatches < 8 do %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top">Bye</li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom">Bye</li>
+			<% end %>
+
 		<% else %>
 			<li class="spacer">&nbsp;</li>
 			<li class="game game-top"> </li>
@@ -137,7 +181,13 @@
 	</ul>
 
 	<ul class="round round-5">
-		<li class="game game-top winner"> </li>
+		<% if @tournament.rounds.all.length >= 4 then %>
+			<% @tournament.rounds.all[3].matches.each do |match| %>
+				<% if match.winner != nil then %>
+					<li class="game game-top winner"><%= match.winner.Name %> </li>
+				<% end %>
+			<% end %>
+		<% end %>
 	</ul>
 
 	</main>
