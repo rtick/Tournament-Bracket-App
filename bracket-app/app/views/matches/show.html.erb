@@ -6,8 +6,23 @@
 </p>
 
 <p>
+  <strong>Round:</strong>
+  <%= @match.round.Name %>
+</p>
+
+<p>
   <strong>Home Team:</strong>
-  <%= @match.home_team.Name %>
+  <%= @match.home_team.Name if @match.home_team %>
+</p>
+
+<p>
+  <strong>Away Team:</strong>
+  <%= @match.away_team.Name if @match.away_team%>
+</p>
+
+<p>
+  <strong>Winner:</strong>
+  <%= @match.winner.Name if @match.winner%>
 </p>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
