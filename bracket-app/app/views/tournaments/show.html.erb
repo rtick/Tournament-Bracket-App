@@ -6,146 +6,139 @@
 		<link rel="stylesheet" type="text/css" href="bracket_css.css">
 	</head>
 
-	<% byeWeekString = "Bi Week" %>
-
-	<% teamArray = Array.new %>
-	<% @tournament.teams.each do |team| %>
-		<% teamArray.push team %>
-	<% end %>
-
 	<h1><%= @tournament.Name %></h1>
 	<main id="tournament">
-		<ul class="round round-1">
-			<li class="spacer">&nbsp;</li>
-			
-			<% i = 0 %>
-			<% while i < 16 do %>
 
-				<% if teamArray[i].blank? then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-top winner"><%= teamArray[i] %></li>
+	<ul class="round round-1">
+		<% if @tournament.rounds.all.length >= 1 then %>
+			<% @tournament.rounds.all[0].matches.each do |match| %>
+
+				<li class="spacer">&nbsp;</li>
+
+				<% if match.home_team == nil then %>
+					<li class="game game-top">Bye</li>
 				<% else %>
-					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
 
 				<li class="game game-spacer">&nbsp;</li>
 
-				<% i = i+1 %>
-
-				<% if teamArray[i].blank? then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% if match.away_team == nil then %>
+					<li class="game game-bottom">Bye</li>
 				<% else %>
-					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+			<% end %>
+		<% else %>
+			<% for i in 0..7 %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top"> </li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom"> </li>
+			<% end %>
+		<% end %>
+		<li class="spacer">&nbsp;</li>
+	</ul>
 
-				<% i = i+1 %>
+	<ul class="round round-2">
+		<% if @tournament.rounds.all.length >= 2 then %>
+			<% @tournament.rounds.all[1].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
 
-			<% end %>
-			
-
-
-			
-		</ul>
-		<ul class="round round-2">
-			<li class="spacer">&nbsp;</li>
-			
-			<% i = 0 %>
-			<% while i < 8 do %>
-
-				<% if teamArray[i].blank? or teamArray[i] == byeWeekString then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-top winner"><%= teamArray[i] %></li>
+				<% if match.home_team == nil then %>
+					<li class="game game-top">Bye</li>
 				<% else %>
-					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
 
 				<li class="game game-spacer">&nbsp;</li>
 
-				<% i = i+1 %>
-
-				<% if teamArray[i].blank? or teamArray[i] == byeWeekString then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% if match.away_team == nil then %>
+					<li class="game game-bottom">Bye</li>
 				<% else %>
-					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+			<% end %>
+		<% else %>
+			<% for i in 0..3 %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top"> </li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom"> </li>
+			<% end %>
+		<% end %>
+		<li class="spacer">&nbsp;</li>
+	</ul>
 
-				<% i = i+1 %>
+	<ul class="round round-3">
+		<% if @tournament.rounds.all.length >= 3 then %>
+			<% @tournament.rounds.all[2].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
 
-			<% end %>
-		</ul>
-		<ul class="round round-3">
-			<li class="spacer">&nbsp;</li>
-			<% i = 0 %>
-			<% while i < 4 do %>
-
-				<% if teamArray[i].blank? or teamArray[i] == byeWeekString then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-top winner"><%= teamArray[i] %></li>
+				<% if match.home_team == nil then %>
+					<li class="game game-top">Bye</li>
 				<% else %>
-					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
 
 				<li class="game game-spacer">&nbsp;</li>
 
-				<% i = i+1 %>
-
-				<% if teamArray[i].blank? or teamArray[i] == byeWeekString then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% if match.away_team == nil then %>
+					<li class="game game-bottom">Bye</li>
 				<% else %>
-					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
+			<% end %>
+		<% else %>
+			<% for i in 0..1 %>
+				<li class="spacer">&nbsp;</li>
+				<li class="game game-top"> </li>
+				<li class="game game-spacer">&nbsp;</li>
+				<li class="game game-bottom"> </li>
+			<% end %>
+		<% end %>
+		<li class="spacer">&nbsp;</li>
+	</ul>
 
-				<% i = i+1 %>
+	<ul class="round round-4">
+		<% if @tournament.rounds.all.length >= 4 then %>
+			<% @tournament.rounds.all[3].matches.each do |match| %>
 
 				<li class="spacer">&nbsp;</li>
 
-			<% end %>
-		</ul>
-		<ul class="round round-4">
-			<li class="spacer">&nbsp;</li>
-			<% i = 0 %>
-			<% while i < 2 do %>
-
-				<% if teamArray[i].blank? or teamArray[i] == byeWeekString then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-top winner"><%= teamArray[i] %></li>
+				<% if match.home_team == nil then %>
+					<li class="game game-top">Bye</li>
 				<% else %>
-					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+					<li class="game game-top"><%= match.home_team.Name %></li>
 				<% end %>
 
 				<li class="game game-spacer">&nbsp;</li>
 
-				<% i = i+1 %>
-
-				<% if teamArray[i].blank? or teamArray[i] == byeWeekString then %>
-					<% teamArray[i] = byeWeekString %>
-					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% if match.away_team == nil then %>
+					<li class="game game-bottom">Bye</li>
 				<% else %>
-					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+					<li class="game game-bottom"><%= match.away_team.Name %></li>
 				<% end %>
 
-
-				<% i = i+1 %>
-
-				<li class="spacer">&nbsp;</li>
-
 			<% end %>
-		
-		</ul>
+		<% else %>
+			<li class="spacer">&nbsp;</li>
+			<li class="game game-top"> </li>
+			<li class="game game-spacer">&nbsp;</li>
+			<li class="game game-bottom"> </li>
+		<% end %>
+		<li class="spacer">&nbsp;</li>
+	</ul>
 
-		<ul class="round round-5">
-			<li class="game game-top winner">Lousville</li>
-		</ul>		
+	<ul class="round round-5">
+		<li class="game game-top winner"> </li>
+	</ul>
+
 	</main>
 	<table>
 		<tbody>
