@@ -105,7 +105,7 @@ class RoundsController < ApplicationController
             next_team.update(:match_id => match.id)
           end
           name += 1
-          match_name = @round.tournament.Name + "_" + @round.Name + name.to_s
+          match_name = @round.tournament.Name + "_" + @round.Name + "_" + name.to_s
           match_num += 2
         end
         
