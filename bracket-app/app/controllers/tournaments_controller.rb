@@ -29,7 +29,7 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.save
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
+        format.html { redirect_to Team.new, notice: 'Tournament was successfully created. Please add teams to your tournament.' }
         format.json { render :show, status: :created, location: @tournament }
       else
         format.html { render :new }
