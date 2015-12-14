@@ -51,53 +51,94 @@
 		<ul class="round round-2">
 			<li class="spacer">&nbsp;</li>
 			
-			<li class="game game-top winner">Lousville </li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom ">Colo St </li>
+			<% i = 0 %>
+			<% while i < 8 do %>
 
-			<li class="spacer">&nbsp;</li>
-			
-			<li class="game game-top winner">Oregon </li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom ">Saint Louis </li>
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-top winner"><%= teamArray[i] %></li>
+				<% else %>
+					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+				<% end %>
 
-			<li class="spacer">&nbsp;</li>
-			
-			<li class="game game-top ">Memphis </li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom winner">Mich St </li>
+				<li class="game game-spacer">&nbsp;</li>
 
-			<li class="spacer">&nbsp;</li>
-			
-			<li class="game game-top ">Creighton </li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom winner">Duke </li>
+				<% i = i+1 %>
 
-			<li class="spacer">&nbsp;</li>
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% else %>
+					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+				<% end %>
+
+
+				<% i = i+1 %>
+
+				<li class="spacer">&nbsp;</li>
+
+			<% end %>
 		</ul>
 		<ul class="round round-3">
 			<li class="spacer">&nbsp;</li>
-			
-			<li class="game game-top winner">Lousville </li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom ">Oregon </li>
+			<% i = 0 %>
+			<% while i < 4 do %>
 
-			<li class="spacer">&nbsp;</li>
-			
-			<li class="game game-top ">Mich St </li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom winner">Duke </li>
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-top winner"><%= teamArray[i] %></li>
+				<% else %>
+					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+				<% end %>
 
-			<li class="spacer">&nbsp;</li>
+				<li class="game game-spacer">&nbsp;</li>
+
+				<% i = i+1 %>
+
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% else %>
+					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+				<% end %>
+
+
+				<% i = i+1 %>
+
+				<li class="spacer">&nbsp;</li>
+
+			<% end %>
 		</ul>
 		<ul class="round round-4">
 			<li class="spacer">&nbsp;</li>
-			
-			<li class="game game-top winner">Lousville</li>
-			<li class="game game-spacer">&nbsp;</li>
-			<li class="game game-bottom ">Duke </li>
-			
-			<li class="spacer">&nbsp;</li>
+			<% i = 0 %>
+			<% while i < 2 do %>
+
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-top winner"><%= teamArray[i] %></li>
+				<% else %>
+					<li class="game game-top winner"><%= teamArray[i].Name %></li>
+				<% end %>
+
+				<li class="game game-spacer">&nbsp;</li>
+
+				<% i = i+1 %>
+
+				<% if teamArray[i].blank? then %>
+					<% teamArray[i] = "Bi Week" %>
+					<li class="game game-bottom "><%= teamArray[i] %> </li>
+				<% else %>
+					<li class="game game-bottom"><%= teamArray[i].Name %></li>
+				<% end %>
+
+
+				<% i = i+1 %>
+
+				<li class="spacer">&nbsp;</li>
+
+			<% end %>
+		
 		</ul>
 
 		<ul class="round round-5">
