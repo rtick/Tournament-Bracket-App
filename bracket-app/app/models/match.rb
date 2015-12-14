@@ -5,6 +5,7 @@ class TeamValidator < ActiveModel::Validator
     end
   end
 end
+
 class Match < ActiveRecord::Base
   belongs_to :round
   belongs_to :home_team, :class_name => "Team"
