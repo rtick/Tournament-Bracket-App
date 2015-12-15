@@ -2,6 +2,7 @@ class RoundsController < ApplicationController
   before_action :set_round, only: [:show, :edit, :update, :destroy]
   
   def winners
+    counter = 1
     puts "CALLING WINNERS"
     round_done = true
     winners = []
@@ -20,8 +21,9 @@ class RoundsController < ApplicationController
         champ = Team.find(winners[0])
         flash[:message] = "Tournament has a Winner:  " + champ.Name
       else
-        new_round = Round.new(:Name => (round.Name + "."), :tournament_id => round.tournament_id)
+        new_round = Round.new(:Name => (round.Name + "_" + counter.to_s), :tournament_id => round.tournament_id)
         new_round.save
+        counter = counter + 1
         match_num = 0
         name = 1
         match_name = new_round.Name + "_" + name.to_s
