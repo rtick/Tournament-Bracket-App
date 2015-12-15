@@ -56,8 +56,12 @@ class TournamentsController < ApplicationController
   # DELETE /tournaments/1.json
   def destroy
     @tournament.rounds.each do |round|
+      round.matches.each do |match|
+        match.destroy
+      end
       round.destroy
     end
+ 
     @tournament.destroy
     respond_to do |format|
       format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }

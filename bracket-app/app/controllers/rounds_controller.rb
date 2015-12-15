@@ -138,6 +138,7 @@ class RoundsController < ApplicationController
     @round.matches.each do |match|
       match.destroy
     end
+    
     @round.destroy
     respond_to do |format|
       format.html { redirect_to rounds_url, notice: 'Round was successfully destroyed.' }
