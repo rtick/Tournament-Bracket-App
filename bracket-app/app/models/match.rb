@@ -16,5 +16,6 @@ class Match < ActiveRecord::Base
   validates :Name, presence: true, uniqueness: true
   validates :round_id, presence: true
   validates :home_team_id, presence: true
+  validates :away_team_id, presence: true
   validates_with MatchTeamValidator
 end
