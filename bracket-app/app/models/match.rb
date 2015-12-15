@@ -4,6 +4,11 @@ class MatchTeamValidator < ActiveModel::Validator
       record.errors[:base] << "Teams cannot play themselves"
     elsif (record.winner_id != nil) && (record.winner_id != record.home_team_id) && ((record.away_team_id != nil) && (record.winner_id != record.away_team_id))
       record.errors[:base] << "You must choose between the 2 teams in this match"
+    elsif(record.winner_id != nil)
+      winner = Team.find(record.winner_id)
+      if winner.Name == "bye week"
+        record.errors[:base] << "Cannot choose bye week as a winner"
+      end 
     end
   end
 end

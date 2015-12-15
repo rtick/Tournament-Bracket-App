@@ -32,10 +32,16 @@ class RoundsController < ApplicationController
               if(team.nil?)
                 break
               elsif(next_team.nil?)
-                match = Match.new(:Name => match_name, :round_id => new_round.id, :home_team_id => team, :winner_id => team)
+                bye_team = Team.find_by(Name:  "bye week")
+                if bye_team.nil?
+                  bye_team = Team.new(:Name => "bye week", :tournament_id => new_round.tournament.id)
+                  bye_team.save
+                end
+                match = Match.new(:Name => match_name, :round_id => new_round.id, :home_team_id => team, :away_team_id => bye_team.id,  :winner_id => team)
                 match.save
                 t1 = Team.find(team)
                 t1.update(:match_id => match.id)
+                bye_team.update(:match_id => match.id)
               else
                 match = Match.new(:Name => match_name, :round_id => new_round.id, :home_team_id => team, :away_team_id => next_team)
                 match.save
@@ -94,9 +100,15 @@ class RoundsController < ApplicationController
             break
           elsif(next_team.nil?)
             puts team.Name
-            match = Match.new(:Name => match_name, :round_id => @round.id, :home_team_id => team.id, :winner_id => team.id)
+            bye_team = Team.find_by(Name:  "bye week")
+            if bye_team.nil?
+              bye_team = Team.new(:Name => "bye week", :tournament_id => @round.tournament.id)
+              bye_team.save
+            end
+            match = Match.new(:Name => match_name, :round_id => @round.id, :home_team_id => team.id, :away_team_id => bye_team.id,  :winner_id => team.id)
             match.save
             team.update(:match_id => match.id)
+            bye_team.update(:match_id => match.id)
           else
             puts team.Name
             puts next_team.Name
