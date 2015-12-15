@@ -221,6 +221,8 @@
 			<% @tournament.rounds.all[roundsDisplayed].matches.each do |match| %>
 				<% if match.winner != nil then %>
 					<li class="game game-top winner"><%= match.winner.Name %> </li>
+				<% else %>
+					<li class="game game-top winner"> </li>
 				<% end %>
 			<% end %>
 		<% else %>
