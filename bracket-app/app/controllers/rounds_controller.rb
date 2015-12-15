@@ -17,7 +17,8 @@ class RoundsController < ApplicationController
     if(round_done == true)
       puts "NEW ROUND!!!"
       if winners.count == 1
-        flash[:message] = "Tournament has a Winner!"
+        champ = Team.find(winners[0])
+        flash[:message] = "Tournament has a Winner:  " + champ.Name
       else
         new_round = Round.new(:Name => (round.Name + "."), :tournament_id => round.tournament_id)
         new_round.save

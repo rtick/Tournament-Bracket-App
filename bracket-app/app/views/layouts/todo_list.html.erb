@@ -16,6 +16,11 @@
 		<ul>
 			<% @all_tournaments.each do |tournament| %>
 			<li><%= link_to "#{tournament.Name}", tournament %></li>
+			<ul>
+				<%tournament.rounds.each do |round|%>
+				<li><%= link_to "#{round.Name}", round%></li>
+				<%end%>
+			</ul>
 			<% end %>
 		</ul>
 		<p><%= link_to 'New Tournament', new_tournament_path %><br>
