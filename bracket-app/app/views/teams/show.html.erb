@@ -7,7 +7,7 @@
 
 <p>
   <strong>Tournament:</strong>
-  <%= @team.tournament.Name if @team.tournament.Name %>
+  <%= @team.tournament.Name if @team.tournament %>
 </p>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
