@@ -1,26 +1,29 @@
 <p id="notice"><%= notice %></p>
+<% if @teams[0] %>
+  <h1>Listing Teams</h1>
 
-<h1>Listing Teams</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tournament</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= team.Name %></td>
-		<td><%= team.tournament.Name if team.tournament%></td>
-        <td><%= button_to 'Show', team %></td>
-        <td><%= button_to 'Edit', edit_team_path(team) %></td>
-        <td><%= button_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Tournament</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table><br>
+    </thead>
+
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.Name %></td>
+  		<td><%= team.tournament.Name if team.tournament%></td>
+          <td><%= button_to 'Show', team %></td>
+          <td><%= button_to 'Edit', edit_team_path(team) %></td>
+          <td><%= button_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <h2>No Teams Exist</h2>
+<%end%><br>
 

@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
+<% if @matches[0] %>
+  <h1>Listing Matches</h1>
 
-<h1>Listing Matches</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-	  <th>Round</th>
-	  <th>Home Team</th>
-	  <th>Away Team</th>
-	  <th>Winner</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @matches.each do |match| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= match.Name %></td>
-		<td><%= match.round.Name if match.round%></td>
-		<td><%= match.home_team.Name if match.home_team %></td>
-		<td><%= match.away_team.Name if match.away_team %></td>
-		<td><%= match.winner.Name if match.winner %></td>	
-        <td><%= button_to 'Show', match %></td>
-        <td><%= button_to 'Edit', edit_match_path(match) %></td>
-        <td><%= button_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <th>Name</th>
+  	   <th>Round</th>
+  	   <th>Home Team</th>
+  	   <th>Away Team</th>
+  	   <th>Winner</th>
+       <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
+    <tbody>
+      <% @matches.each do |match| %>
+        <tr>
+          <td><%= match.Name %></td>
+  		<td><%= match.round.Name if match.round%></td>
+  		<td><%= match.home_team.Name if match.home_team %></td>
+  		<td><%= match.away_team.Name if match.away_team %></td>
+  		<td><%= match.winner.Name if match.winner %></td>	
+          <td><%= button_to 'Show', match %></td>
+          <td><%= button_to 'Edit', edit_match_path(match) %></td>
+          <td><%= button_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <h2>No Matches Exist</h2>
+<%end%><br>
