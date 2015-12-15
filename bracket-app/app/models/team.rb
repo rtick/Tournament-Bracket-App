@@ -1,7 +1,7 @@
 class TeamValidator < ActiveModel::Validator
   def validate(record)
     if record.tournament && (record.tournament.teams.count > 15)
-      record.errors[:base] << "Tournament full"
+      record.errors[:base] << "Tournament Full: can only have 16 teams!"
     end
   end
 end
