@@ -17,7 +17,7 @@
   </div><br>
   <div class="field">
     <%= f.label :round_id %><br>
-    <%= f.collection_select :round_id, Round.all, :id, :Name, prompt: 'Please select an away team' %>
+    <%= f.collection_select :round_id, Round.all, :id, :Name, prompt: 'Please select a round' %>
   </div><br>
   <div class="field">
     <%= f.label :home_team_id %><br>

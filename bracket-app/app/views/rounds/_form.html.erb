@@ -17,7 +17,7 @@
   </div><br>
   <div class="field">
     <%= f.label :tournament_id %><br>
-    <%= f.collection_select :tournament_id, Tournament.all, :id, :Name, {:prompt => 'No tournament assigned'}%>
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :Name, {:prompt => 'Please select a tournament'}%>
   </div><br>
   <div class="actions">
     <%= f.submit %>
